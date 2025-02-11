@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "_Layout";
+
+    //Define variable profile variables
+    var name1 = "Daniil Orlov";
+    var studentNumber1 = "101500729";
+    
+    var name2 = "Gozde Baran";
+    var studentNumber2 = "101515982";
+    
+    var courseCode = "COMP2139";
+    var courseSection = "50259";
+}
+
+<h2>About</h2>
+
+<div>
+    <h3>Application developed by:</h3>
+    <hr>
+    <p>@name1</p>
+    <p>Student Number: @studentNumber1</p>
+    <hr>
+    <p>@name2</p>
+    <p>Student Number: @studentNumber2</p>
+    <hr>
+    <p>Course Code: @courseCode</p>
+    <p>Section: @courseSection</p>
+</div>
