@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\College\\Semester 4\\Webdev\\assignments\\assignment1\\assignment1\\assignment1.csproj": {}
+    "D:\\College\\Semester-4\\Webdev\\assignments\\comp2139-assignment1\\assignment1\\assignment1.csproj": {}
   },
   "projects": {
-    "D:\\College\\Semester 4\\Webdev\\assignments\\assignment1\\assignment1\\assignment1.csproj": {
+    "D:\\College\\Semester-4\\Webdev\\assignments\\comp2139-assignment1\\assignment1\\assignment1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\College\\Semester 4\\Webdev\\assignments\\assignment1\\assignment1\\assignment1.csproj",
+        "projectUniqueName": "D:\\College\\Semester-4\\Webdev\\assignments\\comp2139-assignment1\\assignment1\\assignment1.csproj",
         "projectName": "assignment1",
-        "projectPath": "D:\\College\\Semester 4\\Webdev\\assignments\\assignment1\\assignment1\\assignment1.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "D:\\College\\Semester 4\\Webdev\\assignments\\assignment1\\assignment1\\obj\\",
+        "projectPath": "D:\\College\\Semester-4\\Webdev\\assignments\\comp2139-assignment1\\assignment1\\assignment1.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\College\\Semester-4\\Webdev\\assignments\\comp2139-assignment1\\assignment1\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -37,8 +36,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        }
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -60,7 +60,7 @@
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
               "target": "Package",
-              "version": "[2.0.0-preview1, )"
+              "version": "[1.1.0, )"
             }
           },
           "imports": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Daniel\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

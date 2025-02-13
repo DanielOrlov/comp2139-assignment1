@@ -12,6 +12,7 @@ public class CategoryController : Controller
         var categories = new List<Category>()
         {
             new Category { CategoryId = 1, Name = "Category 1", Description = "Dummy category" }
+            // Can add more categories here
         };
         
         return View(categories);
