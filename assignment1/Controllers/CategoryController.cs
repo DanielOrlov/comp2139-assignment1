@@ -119,5 +119,19 @@ public class CategoryController : Controller
         }
         return View(category);
     }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int CategoryId)
+    {
+        var category = _context.Categories.Find(CategoryId);
+        if (category != null)
+        {
+           _context.Categories.Remove(category); // Remove category from database
+           _context.SaveChanges();               // commit changes to the database
+           return RedirectToAction("Index");
+        }
+        return NotFound();
+    }
     
 }
