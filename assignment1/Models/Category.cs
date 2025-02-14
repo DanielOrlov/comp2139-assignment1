@@ -18,6 +18,9 @@ public class Category
     
     public string? Description { get; set; }
     
+    // One-to-many: A Category can have many Products
+    public List<Product> Products { get; set; } = new ();
+    
     
     
     // [DataType(DataType.Date)]
