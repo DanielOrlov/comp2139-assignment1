@@ -16,6 +16,11 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Define one-to-many relationship
+        modelBuilder.Entity<Category>()
+            .HasMany(c => c.Products)         // One categorie has (potentially) many products
+            .WithOne(p => p.Category)          // Each Product belongs to one Category
+            .HasForeignKey(p => p.CategoryId)  // Foreign Key in Products table
+            .OnDelete(DeleteBehavior.Cascade);        // Cascade delete Products when Category is deleted
         
         // Seeding the database
         modelBuilder.Entity<Category>().HasData(
