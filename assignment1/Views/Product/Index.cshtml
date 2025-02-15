@@ -1,8 +1,45 @@
-﻿@model TModel
+﻿@model List<Product>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Products";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>@ViewBag.Title</h2>
+
+<a asp-action="Create" class="btn btn-primary">Add new product</a>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+        <th>Product ID</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>In stock</th> <!-- Quantity -->
+        </thead>
+        
+        <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.Category.Name</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Quantity</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.CategoryId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@product.CategoryId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@product.CategoryId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No products added to stock yet</p>
+}

@@ -1,0 +1,39 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "Product Details";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Name</h3>
+        <p class="card-text">@Model.Description</p>
+
+        <!-- Display other properties of the project as needed/desired -->
+        <dl class="row">
+            <dt class="col-sm-3">Product ID</dt>
+            <dd class="col-sm-9">@Model.ProductId</dd>
+
+            <dt class="col-sm-3">Product Name: </dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Product Description: </dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+            <dt class="col-sm-3">Product category: </dt>
+            <dd class="col-sm-9">@Model.Category</dd>
+
+
+        </dl>
+
+
+
+        <a asp-action="Edit" asp-route-id="@Model.CategoryId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" asp-route-id="@Model.CategoryId" class="btn btn-secondary">Back to Product List</a>
+
+    </div>
+
+</div>

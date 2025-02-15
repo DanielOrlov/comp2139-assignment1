@@ -20,7 +20,7 @@ public class Product
     public int CategoryId { get; set; }
     
     // Navigation property
-    // This property allows for easy access to the related Project entity from Task entity
+    // This property allows for easy access to the related Category entity from Product entity
     public Category? Category { get; set; }
     
     
