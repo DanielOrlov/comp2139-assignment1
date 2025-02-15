@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace assignment1.Controllers;
 
+[Route("Category")]
 public class CategoryController : Controller
 {
     
@@ -132,6 +133,32 @@ public class CategoryController : Controller
            return RedirectToAction("Index");
         }
         return NotFound();
+    }
+
+    [HttpGet("Search/{searchString}")]
+    public async Task<IActionResult> Search(string searchString)
+    {
+        var categoriesQuery = _context.Categories.AsQueryable();
+
+        bool searchPerformed = !string.IsNullOrEmpty(searchString);
+
+        if (searchPerformed)
+        {
+            searchString = searchString.ToLower();
+            
+            categoriesQuery = categoriesQuery.Where(c => c.Name.ToLower().Contains(searchString) ||
+                                                         c.Description.ToLower().Contains(searchString));
+            
+        }
+        
+        // Asynchronous execution means this method does not block the thread while waiting for the database
+        var categories = await categoriesQuery.ToListAsync();
+        
+        // Pass search metadata
+        ViewData["SearchString"] = searchString;
+        ViewData["SearcPerformed"] = searchPerformed;
+        
+        return View("Index", categories);
     }
     
 }

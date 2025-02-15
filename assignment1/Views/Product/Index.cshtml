@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Products";
     Layout = "_Layout";
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -43,5 +45,12 @@
 }   
 else
 {
-    <p>No products added to stock yet</p>
+    if (searchPerformed)
+    {
+        <p>No products with containing "@searchString" were found</p>
+    }
+    else
+    {
+        <p>No products available yet</p>
+    }
 }

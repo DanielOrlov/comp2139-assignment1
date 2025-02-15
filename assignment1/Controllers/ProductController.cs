@@ -5,6 +5,7 @@ namespace assignment1.Controllers;
 using assignment1.Data;
 using assignment1.Models;
 
+[Route("Product")]
 public class ProductController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -131,5 +132,37 @@ public class ProductController : Controller
             return RedirectToAction("Index", new { categoryId = product.CategoryId });
         }
         return View(product);
+    }
+    
+    [HttpGet("Search")]
+    public async Task<IActionResult> Search(int? categoryId, string searchString)
+    {
+        var productsQuery = _context.Products.AsQueryable();
+
+        bool searchPerformed = !string.IsNullOrEmpty(searchString);
+
+        if (categoryId.HasValue)
+        {
+            productsQuery = productsQuery.Where(p => p.CategoryId == categoryId);
+        }
+
+        if (searchPerformed)
+        {
+            searchString = searchString.ToLower();
+            
+            productsQuery = productsQuery.Where(p => p.Name.ToLower().Contains(searchString) ||
+                                                         p.Description.ToLower().Contains(searchString));
+            
+        }
+        
+        // Asynchronous execution means this method does not block the thread while waiting for the database
+        var products = await productsQuery.ToListAsync();
+        
+        // Pass search metadata
+        ViewBag.CategoryId = categoryId;
+        ViewData["SearchString"] = searchString;
+        ViewData["SearcPerformed"] = searchPerformed;
+        
+        return View("Index", products);
     }
 }

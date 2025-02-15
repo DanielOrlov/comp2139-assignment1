@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "Categories";
     Layout = "_Layout";
+
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
+    
 }
 
 <h2>@ViewBag.Title</h2>
@@ -38,5 +42,13 @@
 }
 else
 {
-    <p>No categories created yet</p>
+    if (searchPerformed)
+    {
+        <p>No categories with containing "@searchString" were found</p>
+    }
+    else
+    {
+        <p>No categories created yet</p>
+    }
+    
 }
